@@ -40,12 +40,10 @@ public:
             start = end + 1;
         }
 
-        // Ожидание завершения потоков
         for (auto &thread : threads) {
             thread.join();
         }
 
-        // Умножаем все результаты потоков
         return std::accumulate(results.begin(), results.end(), 1ULL, std::multiplies<unsigned long long>());
     }
 };
